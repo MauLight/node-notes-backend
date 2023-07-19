@@ -6,6 +6,7 @@ const app = express()
 //and then attaches it to the body property of the request object 
 //before the route handler is called.
 app.use(cors())
+app.use(express.static('build'))
 app.use(express.json())
 app.use(morgan('tiny'))
 
@@ -43,9 +44,9 @@ let notes = [
 
 //***routes***
 
-app.get('/', (request, response) => {
-    response.send('<h1>Hello World!</h1>')
-})
+// app.get('/', (request, response) => {
+//     response.send('<h1>Hello World!</h1>')
+// })
 
 app.get('/api/notes', (request, response) => {
     response.json(notes)
